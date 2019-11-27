@@ -1,0 +1,30 @@
+﻿<Window x:Class="K_Means.ResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:wfi="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+        xmlns:local="clr-namespace:K_Means"
+        mc:Ignorable="d"
+        Title="ResultWindow" Height="667.667" Width="1020" HorizontalContentAlignment="Center" ResizeMode="NoResize">
+    <Grid x:Name="Graph" Margin="-3,10,3.333,1.667">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="302*"/>
+            <RowDefinition/>
+            <RowDefinition Height="11*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="313*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="688*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="outputTable" Margin="10,25,10.667,0" CanUserAddRows ="False" Grid.ColumnSpan="3" Height="145" VerticalAlignment="Top" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserSortColumns="False"/>
+        <ComboBox x:Name="boxFirstDim" Margin="146,0,52.333,10" Text="Первое измерение среза" SelectionChanged="boxFirstDim_SelectionChanged" Height="28" VerticalAlignment="Bottom" Grid.RowSpan="3"/>
+        <ComboBox x:Name="boxSecondDim" Margin="265,0,632.675,11" Text="Второе измерение среза" SelectionChanged="boxSecondDim_SelectionChanged" Grid.ColumnSpan="3" Grid.RowSpan="3" Height="28" VerticalAlignment="Bottom"/>
+        <DataGrid x:Name="clustersAverage" Margin="10,0,10.667,283.333" CanUserAddRows="False" Grid.ColumnSpan="3" Height="144" VerticalAlignment="Bottom" CanUserSortColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False"/>
+        <WindowsFormsHost x:Name="w_host" Margin="10,0,0,20.333" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="501" Height="257" VerticalAlignment="Bottom"/>
+        <WindowsFormsHost x:Name ="average_host" Grid.Column="2" Margin="0,0,10.667,20.333" HorizontalAlignment="Right" Width="487" Height="257" VerticalAlignment="Bottom"/>
+        <Label x:Name="label" Content="Выбор среза:" Margin="52,0,173.333,10" Grid.RowSpan="3" Height="28" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>
