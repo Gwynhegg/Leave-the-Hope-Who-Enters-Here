@@ -5,9 +5,10 @@ namespace K_Means
 {
     public class DataRecord
     {
-        private double[] dataset;
-        private string name;
+        private double[] dataset; //Хранилище-вектор параметров записи
+        private string name;  //имя текущей записи
 
+        //геттеры и сеттеры для параметров записи
         public void setName(string name)        
         {
             this.name = name;
@@ -35,6 +36,8 @@ namespace K_Means
             }
         }
 
+        //Метод, возвращающий растояние до другого объекта с
+        //помощью указанной меры расстояния
         public double getDistance(DataRecord compared_data, int type)
         {
             if (type == 0) return euclidianDistance(compared_data);
@@ -43,6 +46,7 @@ namespace K_Means
             else return ChebishevDistance(compared_data);
         }
 
+        //Метод для высчитывания расстояния Чебышева
         public double ChebishevDistance(DataRecord compared_data)
         {
             double[] compared_dataset = compared_data.getData();
@@ -55,6 +59,7 @@ namespace K_Means
             return max;
         }
 
+        //Метод для высчитывания манхэттенского расстояния
         public double manhattanDistance(DataRecord compared_data)
         {
             double[] compared_dataset = compared_data.getData();
@@ -66,6 +71,7 @@ namespace K_Means
             return temp_sum;
         }
 
+        //Метод для высчитывания квадратичного расстояния
         public double quadDistance(DataRecord compared_data)
         {
             double[] compared_dataset = compared_data.getData();
@@ -77,6 +83,7 @@ namespace K_Means
             return temp_sum;
         }
 
+        //Метод для высчитывания расстояния Евклида
         public double euclidianDistance(DataRecord compared_data)
         {
             double[] compared_dataset = compared_data.getData();
@@ -88,6 +95,8 @@ namespace K_Means
             return Math.Sqrt(temp_sum);
         }
 
+        //Метод, высчитывающий расстояние до центроидов кластеров и
+        //присваивающий текущий объект наиболее ближнему кластеру
         public void addToCluster(Cluster[] clusters, int type_of_distance)
         {
             double minimal_distance = this.getDistance(clusters[0].getCentroid(),type_of_distance), temp;

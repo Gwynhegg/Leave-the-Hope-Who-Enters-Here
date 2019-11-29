@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:K_Means"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Grid.IsSharedSizeScope="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
-    <Grid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="0,0,0.333,-0.333">
+    <Grid ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" Margin="0,0,0.333,-0.333" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="47*"/>
             <RowDefinition Height="13*"/>
@@ -16,7 +16,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Начать" Margin="0,0,10.333,6.333" Click="Button_Click" HorizontalAlignment="Right" Width="93" Height="32" VerticalAlignment="Bottom"/>
+        <Button Content="Начать" Margin="0,0,10.333,6.333" Click="Button_Click" HorizontalAlignment="Right" Width="93" Height="32" VerticalAlignment="Bottom" Background="{DynamicResource {x:Static SystemColors.MenuBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
         <ScrollViewer x:Name="Logs" Margin="0,0,0.333,-0.333" Height="92" VerticalAlignment="Bottom" Content="Логи:" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.RowSpan="2"/>
         <Menu x:Name="menu" Margin="0,0,0.333,0" VerticalAlignment="Top" Height="18">
             <MenuItem Header="Создать проект...">
@@ -30,19 +30,19 @@
                 <MenuItem Header="Удалить строку" Click="deleteRow"/>
                 <MenuItem Header="(test) Заполнить" Click="fillRandomly"/>
             </MenuItem>
-            <MenuItem Header="Справка"/>
-            <MenuItem Header="Выход"/>
+            <MenuItem Header="Справка" Click="helpMe"/>
+            <MenuItem Header="Выход" Click="winClose"/>
         </Menu>
-        <DataGrid x:Name="itemsTable" CanUserAddRows="False" Margin="10,23,10.333,43.333" CanUserSortColumns="False" CanUserReorderColumns="False" ClipToBounds="True"/>
+        <DataGrid x:Name="itemsTable" CanUserAddRows="False" Margin="10,23,10.333,43.333" CanUserSortColumns="False" CanUserReorderColumns="False" ClipToBounds="True" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" RowHeight="{DynamicResource {x:Static SystemParameters.CaptionHeightKey}}" ColumnWidth="Auto" MinColumnWidth="40"/>
         <Label x:Name="label" Content="Количество кластеров:" Margin="405,291,239.333,6.333" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="textBox" Margin="559,291,121.333,6.333" TextWrapping="Wrap" Text="Введите число..." GotFocus="textBox_GotFocus" TextChanged="textBox_TextChanged"/>
-        <ComboBox x:Name="boxDistance" Margin="0,290,565.333,11.333" SelectedIndex="0" HorizontalAlignment="Right" Width="218">
+        <TextBox x:Name="textBox" Margin="559,0,121.333,6.333" TextWrapping="Wrap" Text="Введите число..." GotFocus="textBox_GotFocus" TextChanged="textBox_TextChanged" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Height="32" VerticalAlignment="Bottom"/>
+        <ComboBox x:Name="boxDistance" Margin="0,293,565.333,8.333" SelectedIndex="0" HorizontalAlignment="Right" Width="218" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}">
             <ListBoxItem Content="Евклидово расстояние"/>
             <ListBoxItem Content="Квадратичное расстояние"/>
             <ListBoxItem Content="Манхэттенское расстояние"/>
             <ListBoxItem Content="Расстояние Чебышева"/>
         </ComboBox>
-        <CheckBox x:Name="checkNormalize" Content="Нормализация данных" Margin="233,288,393.333,0" VerticalAlignment="Top" Height="33" VerticalContentAlignment="Center"/>
+        <CheckBox x:Name="checkNormalize" Content="Нормализация данных" Margin="233,288,393.333,0" VerticalAlignment="Top" Height="33" VerticalContentAlignment="Center" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
 
     </Grid>
 </Window>

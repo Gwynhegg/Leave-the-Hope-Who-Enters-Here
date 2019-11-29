@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace K_Means
 {
@@ -25,6 +15,7 @@ namespace K_Means
             InitializeComponent();
         }
 
+        //Геттеры для передаваемых параметров и количества объектов
         public int getObjects()
         {
             return num_of_objects;
@@ -35,6 +26,7 @@ namespace K_Means
             return num_of_params;
         }
 
+        //Динамический обработчик входных данных
         private void textNum_Of_Objects_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -47,7 +39,7 @@ namespace K_Means
             }
         }
 
-
+        //Вспомогательные методы очистки полей
         private void textNum_Of_Params_GotFocus(object sender, RoutedEventArgs e)
         {
             textNum_Of_Params.Text = "";
@@ -57,6 +49,8 @@ namespace K_Means
         {
             textNum_Of_Objects.Text = "";
         }
+
+        //Передаем значения на основную форму
         private void button_GotFocus(object sender, RoutedEventArgs e)
         {
             num_of_objects = Int32.Parse(textNum_Of_Objects.Text);
@@ -72,6 +66,7 @@ namespace K_Means
             this.Close();
         }
 
+        //Динамический обработчик входных данных
         private void textNum_Of_Params_KeyUp(object sender, KeyEventArgs e)
         {
             try

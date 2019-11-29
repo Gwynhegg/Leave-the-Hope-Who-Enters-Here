@@ -377,5 +377,15 @@ namespace K_Means
             excel.Quit(); //Выходим из созданного экземпляра приложения
             itemsTable.ItemsSource = source_table.AsDataView(); //Устанавливаем таблицу в качестве источника данных
         }
+
+        private void winClose(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void helpMe(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Бог в помощь");
+        }
     }
 }
